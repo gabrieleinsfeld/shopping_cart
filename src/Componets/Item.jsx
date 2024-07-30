@@ -15,7 +15,7 @@ import {
   CardFooter,
 } from "@chakra-ui/react";
 
-function Item({ description, title, price, id, img }) {
+function Item({ addItem, description, title, price, id, img }) {
   return (
     <>
       <Card maxW="sm">
@@ -40,7 +40,13 @@ function Item({ description, title, price, id, img }) {
             <Button variant="solid" colorScheme="blue">
               Buy now
             </Button>
-            <Button variant="ghost" colorScheme="blue">
+            <Button
+              onClick={() =>
+                addItem({ id: id, price: price, title: title, image: img })
+              }
+              variant="ghost"
+              colorScheme="blue"
+            >
               Add to cart
             </Button>
           </ButtonGroup>

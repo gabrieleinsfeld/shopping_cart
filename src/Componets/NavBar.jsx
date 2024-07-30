@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
-
-export default function Header(props) {
+import { useEffect } from "react";
+export default function NavBar({ item }) {
+  useEffect(() => {}, [item]);
   return (
     <>
       <div id="nav-bar">
@@ -10,11 +11,11 @@ export default function Header(props) {
             <li>Home</li>
           </Link>
 
-          <Link to="/products">
+          <Link to={"/"}>
             <li>Products</li>
           </Link>
           <li style={{ marginLeft: 10 }}>
-            <Cart></Cart>
+            <Cart item={item}></Cart>
           </li>
         </ul>
       </div>

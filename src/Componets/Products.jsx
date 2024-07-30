@@ -5,17 +5,25 @@ import { Heading } from "@chakra-ui/react";
 import { useState } from "react";
 function Products() {
   const [data, setData] = useState([]);
+  const [item, setItem] = useState([]);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);
 
+  function addItem(i) {
+    const arr = [...item];
+    arr.push(i);
+    setItem(arr);
+  }
+
   console.log(data);
   return (
     <>
       <div id="header"></div>
-      <Header></Header>
+      <Header item={item}></Header>
+
       <Heading ml={59} mt={5}>
         {" "}
         Our Products
@@ -24,6 +32,7 @@ function Products() {
         {data.map((item, index) => {
           return (
             <Item
+              addItem={addItem}
               title={item.title}
               description={item.description}
               id={item.id}
@@ -34,7 +43,6 @@ function Products() {
           );
         })}
       </div>
-      <div id="footer">Hello</div>
     </>
   );
 }
