@@ -27,7 +27,7 @@ function Item({ addItem, description, title, price, id, img }) {
             borderRadius="lg"
           />
           <Stack mt="6" spacing="3">
-            <Heading size="md">Living room Sofa</Heading>
+            <Heading size="md">{title}</Heading>
             <Text>{description}</Text>
             <Text color="blue.600" fontSize="2xl">
               ${price}
